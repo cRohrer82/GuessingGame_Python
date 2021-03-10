@@ -73,7 +73,7 @@ def playGame():
         charAgain = "Z"
         import random as R
         intRand = R.randrange(1,101) #-> 
-        print(intRand) #delete 1st # to debug
+        #print(intRand) #delete 1st # to debug
         intCount = gameLoop(intRand, -1, 0, 100)
         print("Correct!  Good guess!")
         endGame(intCount, 7)
