@@ -17,6 +17,14 @@ print("WELCOME TO THE GUESSING GAME!\n\n"
 print()
 
 def mainMenu():
+"""
+Display main menu for the game and import correct file
+
+- Arguements: none.
+- Print main menu and allow player to choose option.
+- Ensure only game options are selectible.
+- Returns: nothing.
+"""
     print("Choose from the menu:")
     print("1 - Play a normal game (1 - 100)")
     print("2 - Play a modified game (1 - whatever)")

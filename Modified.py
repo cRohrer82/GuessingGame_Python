@@ -2,11 +2,18 @@
 """
 @author: Christopher Rohrer
 """
-import Game as G
 
 def modGame():
+"""
+Sets maximum for the modified game
+
+- Arguements: none.
+- Prompt player for game maximum.
+- Ensure maximum value is a positive whole number.
+- Returns: maximum for modified game.
+"""
     intRant_M = -1
-    #while intRant_M 
+
     try:
         intRant_M = int(input("What is the max for your game?... "))
     except ValueError:
@@ -21,6 +28,13 @@ def modGame():
     return intRant_M
 
 def modEnd(randMax):
+"""
+Defines good number of turns
+
+- Arguements: modified game maximum.
+- Calculate good number of guesses.
+- Returns: good number of guesses.
+"""
     intHigh = 2
     intRounds = 1
     while intHigh < randMax:
@@ -30,18 +44,33 @@ def modEnd(randMax):
     return intRounds
 
 def playGame():
+"""
+Run modified game
+
+- Arguements: none.
+- Create loop so player can play multiple games.
+- Set maximum value, goal number, and good number of guesses.
+- Call gameLoop to run modified game and show when player gets correct guess.
+- Ask to play again and call yOrN.
+- Returns: nothing.
+"""
     charAgain = "Y"
     intRounds = 7
     
     while charAgain == "Y":
-        charAgain = "Z"
         import random as R
-        intMod = modGame()
+		import Game as G
+		
+        charAgain = "Z"
+		
+		intMod = modGame()
         intRand = R.randrange(1, intMod)
         intRounds = modEnd(intMod)
+		
         #print(intRand) #delete 1st # to debug
         intCount = G.gameLoop(intRand, -1, 0, intMod)
         print("Correct!  Good guess!")
         G.endGame(intCount, intRounds)
+		
         print("Would you like to play again?")
         charAgain = G.yOrN()
