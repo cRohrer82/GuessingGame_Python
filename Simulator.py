@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 30 2019
-Modified on Tue Jun 30 2020
-
 @author: Christopher Rohrer
 """
 
