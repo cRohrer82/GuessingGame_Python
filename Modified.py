@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 25 2019
-Modified on Tue Jun 30 2020
-
-@author: CKRoh
+@author: Christopher Rohrer
 """
 import Game as G
 
