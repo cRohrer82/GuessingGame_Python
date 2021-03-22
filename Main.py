@@ -4,16 +4,16 @@
 
 """
 
-print("WELCOME TO THE GUESSING GAME!")
-print("In this game a number is picked at random and then you try to guess")
-print("what that number is. After each guess you will be told if you are too")
-print("high or too low. After you find the number, you will get a message")
-print("on how many guesses you took. If you take too many, the message will")
-print("tell you how many you should have needed. Then you can try again to")
-print("improve your technique.")
-print("You can also let the computer run the game several times to see what")
-print("the maximum number of guesses should be and see what technique the")
-print("computer uses.")
+print("WELCOME TO THE GUESSING GAME!\n\n"
+"In this game a number is picked at random and then you try to guess\n"
+"what that number is. After each guess you will be told if you are too\n"
+"high or too low. After you find the number, you will get a message\n"
+"on how many guesses you took. If you take too many, the message will\n"
+"tell you how many you should have needed. Then you can try again to\n"
+"improve your technique.\n"
+"You can also let the computer run the game several times to see what\n"
+"the maximum number of guesses should be and see what technique the\n"
+"computer uses.")
 print()
 
 def mainMenu():
