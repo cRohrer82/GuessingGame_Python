@@ -25,6 +25,14 @@ yOrN:
 """
 
 def gameLoop(randGoal, playerInput, loopCount, maxGoal):
+"""
+Guessing loop for player guesses
+
+- Arguements: goal for the game, initialize player input, initialize loop count, maximum possible goal for game.
+- Ensures good values for the game are entered.
+- Lets player know if guess is too high or too low.
+- Returns: number of player guesses.
+"""
     while playerInput != randGoal:
         try:
             print("Pick a number from 1 to", maxGoal,"... ")
@@ -47,6 +55,13 @@ def gameLoop(randGoal, playerInput, loopCount, maxGoal):
     return loopCount
 
 def endGame(loopCount, goodCount):
+"""
+Response after guessing correct number
+
+- Arguements: number of guesses, maximum number of guesses for good game.
+- Takes loop count and compares to number of guesses for good game.
+- Returns: nothing.
+"""
     if loopCount > 1 and loopCount <= goodCount:
         print("It took you", loopCount, "guesses.")
     elif loopCount == 1:
@@ -57,6 +72,13 @@ def endGame(loopCount, goodCount):
     print()
 
 def yOrN():
+"""
+Loop for deciding to play another game or not
+
+- Arguements: none.
+- Makes sure player can only continue if n or y is selected.
+- Returns: N for no or Y for yes.
+"""
     charResp = ""
     while charResp != "N" and charResp != "Y":
         charResp = str(input("Push 'n' then 'enter' for no, push 'y' then 'enter' for yes,"))
@@ -65,7 +87,17 @@ def yOrN():
     return charResp
 
 def playGame():
+"""
+Sets up game and loops if players wants to play more than once
+
+- Arguements: none.
+- Imports 'random' library and uses it to create random number for game goal.
+- Lets player know when they guessed correctly and calls end game with game data.
+- Asks player if they want to play the game again and loops around to begining if they do.
+- Returns: nothing.
+"""
     charAgain = "Y"
+	
     while charAgain == "Y":
         charAgain = "Z"
         import random as R
@@ -76,3 +108,4 @@ def playGame():
         endGame(intCount, 7)
         print("Would you like to play again?")
         charAgain = yOrN()
+	

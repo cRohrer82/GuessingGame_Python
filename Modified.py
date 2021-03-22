@@ -20,10 +20,10 @@ def modGame():
         
     return intRant_M
 
-def modEnd(randGoal):
+def modEnd(randMax):
     intHigh = 2
     intRounds = 1
-    while intHigh < randGoal:
+    while intHigh < randMax:
         intRounds += 1
         intHigh *= 2
         
@@ -31,14 +31,14 @@ def modEnd(randGoal):
 
 def playGame():
     charAgain = "Y"
-    intRounds = 7#
+    intRounds = 7
     
     while charAgain == "Y":
         charAgain = "Z"
         import random as R
-        intMod = modGame()#
-        intRand = R.randrange(1, intMod)#
-        intRounds = modEnd(intMod)#
+        intMod = modGame()
+        intRand = R.randrange(1, intMod)
+        intRounds = modEnd(intMod)
         #print(intRand) #delete 1st # to debug
         intCount = G.gameLoop(intRand, -1, 0, intMod)
         print("Correct!  Good guess!")

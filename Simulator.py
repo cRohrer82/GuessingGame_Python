@@ -35,6 +35,8 @@ def simRounds():
         try:
             intLoops = int(input("Minimum 1, Maximum 10 ... "))
         except:
+			print("You need to pick a number between 1 and 10")
+			input()
             simRounds()
     print()
     return intLoops
