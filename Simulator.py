@@ -38,7 +38,16 @@ Display for simulated games
             
 
 def simRounds():
+"""
+Define the number of times to run the simulation
+
+- Arguements: none.
+- Prompt player to enter number of simulation runs.
+- Only allow between 1 and 10 simulations.
+- Returns: number of simulations to run.
+"""
     print("How many times do you want the computer to run this simulation?")
+	
     intLoops = 0
     while intLoops < 1 or intLoops > 10:
         try:
@@ -48,14 +57,23 @@ def simRounds():
 			input()
             simRounds()
     print()
+	
     return intLoops
 
 def playGame():
+"""
+Define parameters for the simulation(s)
+
+- Arguements: none.
+- Create and ready variables and import needed files.
+- Define parameters and run simulation(s).
+- Ask if player would like to run more simulations.
+- Returns: nothing.
+"""
     charAgain = "Y"
     intHigh = 2
     intRounds = 1
     intGame = 0
-	
 	import Game as G
 	import Modified as M
     
@@ -64,9 +82,6 @@ def playGame():
         import random as R
         intMod = M.modGame()
         intLoops = simRounds()
-        while intHigh < intMod:
-            intRounds += 1
-            intHigh *= 2
         while intLoops > 0:
             intLoops -= 1
             intGame += 1
