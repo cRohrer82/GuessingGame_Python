@@ -3,16 +3,25 @@
 @author: Christopher Rohrer
 """
 
-import Game as G
-import Modified as M
 
 def simGame(gameNum, maxGoal, currentGoal):
+"""
+Display for simulated games
+
+- Arguements: current simulation number, maximum goal for simulations, current simulation goal.
+- Runs a single simulation of a game.
+- Each simulation gets a title and each guess gets a note
+- Returns: nothing.
+"""
     intMax = maxGoal
     intMin = 0
     intTry = 1
     intGuess = 0
     
+	# Simulation Title:
     print ("Game ", gameNum, ", Game Range ", maxGoal, ", Goal Number ", currentGoal)
+	
+	# Simulation Guess Note:
     while intGuess != currentGoal:
         intRange = int(intMax - intMin)
         intGuess = int(intMin + (intRange / 2))
@@ -46,6 +55,9 @@ def playGame():
     intHigh = 2
     intRounds = 1
     intGame = 0
+	
+	import Game as G
+	import Modified as M
     
     while charAgain == "Y":
         charAgain = "Z"
