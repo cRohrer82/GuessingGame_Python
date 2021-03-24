@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 @author: Christopher Rohrer
-
 """
 
 print("WELCOME TO THE GUESSING GAME!\n\n"
@@ -17,49 +16,47 @@ print("WELCOME TO THE GUESSING GAME!\n\n"
 print()
 
 def mainMenu():
-"""
-Display main menu for the game and import correct file
+#Display main menu for the game and import correct file
 
-- Arguements: none.
-- Print main menu and allow player to choose option.
-- Ensure only game options are selectible.
-- Returns: nothing.
-"""
+# - Arguements: none.
+# - Print main menu and allow player to choose option.
+# - Ensure only game options are selectible.
+# - Returns: nothing.
 
-    print("Choose from the menu:")
-    print("1 - Play a normal game (1 - 100)")
-    print("2 - Play a modified game (1 - whatever)")
-    print("3 - Let the computer run the game and see the results")
-    print("4 - Quit")
-    print()
-    charFormat = str(input("Which do you want to do?... "))
+	print("Choose from the menu:")
+	print("1 - Play a normal game (1 - 100)")
+	print("2 - Play a modified game (1 - whatever)")
+	print("3 - Let the computer run the game and see the results")
+	print("4 - Quit")
+	print()
+	charFormat = str(input("Which do you want to do?... "))
 
-    if charFormat == "1":
-        print("New Game")
-        import Game as G
-        G.playGame()
-        mainMenu()
+	if charFormat == "1":
+		print("New Game")
+		import Game as G
+		G.playGame()
+		mainMenu()
 
-    elif charFormat == "2":
-        print("New Modified Game")
-        import Modified as M
-        M.playGame()
-        mainMenu()
+	elif charFormat == "2":
+		print("New Modified Game")
+		import Modified as M
+		M.playGame()
+		mainMenu()
 
-    elif charFormat =="3":
-        import Simulator as S
-        S.playGame()
-        mainMenu()
+	elif charFormat =="3":
+		import Simulator as S
+		S.playGame()
+		mainMenu()
 
-    elif charFormat == "4":
-        print("Thanks for playing!")
-        input()
-        quit
+	elif charFormat == "4":
+		print("Thanks for playing!")
+		input()
+		quit
 
-    else:
-        print("Please choose an option from the menu")
-        print ()
-        mainMenu()
+	else:
+		print("Please choose an option from the menu")
+		print ()
+		mainMenu()
 
 mainMenu()
-    
+	
