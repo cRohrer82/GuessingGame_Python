@@ -4,7 +4,7 @@
 """
 
 def modGame():
-# Sets maximum for the modified game
+# Set maximum for the modified game
 
 # - Arguements: none.
 # - Prompt player for game maximum.
@@ -28,7 +28,7 @@ def modGame():
 	return intRant_M
 
 def modEnd(randMax):
-# Defines good number of turns
+# Define good number of turns
 
 # - Arguements: modified game maximum.
 # - Calculate good number of guesses.
