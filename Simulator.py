@@ -59,7 +59,7 @@ def simRounds():
 	return intLoops
 
 def playGame():
-# Define parameters for the simulation(s)
+# Define parameters for the simulations and run the simulations
 
 # - Arguements: none.
 # - Create and ready variables and import needed files.
@@ -86,5 +86,6 @@ def playGame():
 			simGame(intGame, intMod, intRand)
 			print()
 			
+		intGame = 0
 		print("Would you like to run another simulation?")
 		charAgain = G.yOrN()

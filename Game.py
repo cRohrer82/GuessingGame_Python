@@ -63,7 +63,7 @@ def yOrN():
 	return charResp
 
 def playGame():
-# Sets up game and loops if players wants to play more than once
+# Set up game and loops if player wants to play more than once
 
 # - Arguements: none.
 # - Imports 'random' library and uses it to create random number for game goal.
