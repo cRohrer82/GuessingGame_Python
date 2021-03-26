@@ -8,5 +8,5 @@ Modified.py - User definied game (1 to whatever).<br>
 Simulator.py - Same as Modified.py, except the application plays it and displays the results.
 
 ## Future
-Look at changes to shorten code<br>
+Create OOP version of the game<br>
 Possible data science addition
