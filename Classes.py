@@ -5,28 +5,15 @@
 
 import random as R
 
-#========================
+#=========================
 class Player:
-	'Represents the player'
-	
-	def __init__(self, name):
-		self.name = name
-		
-	def makeGuess(self):
-		intGuess = int(input("What is your guess?"))
-		clsGuess = Guess(self.name, intGuess).__inc__
-		
-	def makeGame(self):
-		strGame = input("Enter a name for the game ")
-		intMax = int(input("What is the maximum for this game "))
-		return Game(strGame, self.name, intMax)
-		
-		
+	'code'
+
 #=========================
 class Game:
 	'Represents a game created by the player'
 	
-	intGoal = 0
+	intGuesses = 0
 	
 	def __init__(self, name, player, max):
 		self.name = name
@@ -44,14 +31,8 @@ class Game:
 		intGoal = R.randrange(1, self.max + 1)
 		return intGoal
 		
+	def guessNumber(self, number):
+		intGuesses += 1
+		return 
 		
-#========================
-class Guess:
-	'Represents guesses made by the player'
-	
-	def __init__(self, player, number):
-		self.player = player
-		self.number = number
-		
-	def makeGuess(self):
-		'code'
+#=======================
