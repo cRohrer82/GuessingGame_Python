@@ -13,11 +13,12 @@ class Player:
 		self.name = name
 		
 	def makeGuess(self):
-		'code'
+		intGuess = int(input("What is your guess?"))
+		clsGuess = Guess(self.name, intGuess).__inc__
 		
 	def makeGame(self):
-		strGame = input("Enter a name for the game")
-		intMax = int(input("What is the maximum for this game"))
+		strGame = input("Enter a name for the game ")
+		intMax = int(input("What is the maximum for this game "))
 		return Game(strGame, self.name, intMax)
 		
 		
@@ -48,10 +49,9 @@ class Game:
 class Guess:
 	'Represents guesses made by the player'
 	
-	def __init__(self, player, number, game):
+	def __init__(self, player, number):
 		self.player = player
 		self.number = number
-		self.game = game
 		
 	def makeGuess(self):
 		'code'
