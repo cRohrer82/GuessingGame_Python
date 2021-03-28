@@ -3,9 +3,9 @@
 @author: Christopher Rohrer
 """
 
-import Classes as C
+import Classes as c
 
-Player = C.Player("ME")
-Game = Player.makeGame()
-print(Game.goal)
+intMax = int(input())
+Game = c.Game("Game1", intMax)
+# print(Game.goal)
 input()
