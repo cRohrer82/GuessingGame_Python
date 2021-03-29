@@ -29,6 +29,8 @@ class Game:
 			
 	def findGoal(self):
 		intGoal = R.randrange(1, self.max + 1)
+		print(intGoal)
+		
 		return intGoal
 		
 	def findGoodNumber(self):
@@ -43,10 +45,12 @@ class Game:
 				
 	def guessNumber(self):
 		intGuesses = 0
-		intGuess = int(input("Choose a number from 1 to ", self.max, "... "))
+		intGuess = 0
 		while intGuess != self.goal:
+			intGuess = int(input("Choose a number from 1 to game max"))
 			if M.isnan(intGuess) or intGuess < 1 or intGuess > self.max:
 				print("Please guess whole numbers between 1 and the game maximum of ", self.max, "!\nPress 'Enter' to continue.")
+				input()
 				continue
 				
 			intGuesses += 1
@@ -56,10 +60,16 @@ class Game:
 			if intGuess < self.goal:
 				print("Nope, it's greater than that")
 				
-		endGame(intGuesses)
+		self.endGame(intGuesses)
 		
 	def endGame(self, guesses):
-		
+		print("That's it! Congratulations!\nIt took you ", guesses, " turns.")
+		if guesses <= self.turns and guesses > 1:
+			print("Good job!")
+		if guesses > self.turns:
+			print("Try to get it less than ", guesses, " turns next time")
+		if guesses == 1:
+			print("Wow! That's great!")
 		
 #=======================
 	# intHigh = 2
