@@ -55,9 +55,10 @@ def mainMenu():
 		intRounds = 0
 		intMaximum = int(input("What is the maximum for the simulations?... "))
 		intRounds = int(input("How many simulations do you want to run?... "))
-		Game = c.Game(intMaximum, intRounds)
-		Game.guessNumber(intRounds)
-		del Game
+		for x in range(intRounds):
+			Game = c.Game(intMaximum)
+			Game.guessNumber()
+			del Game
 		mainMenu()
 
 	elif charFormat == "4":

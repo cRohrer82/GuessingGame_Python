@@ -20,13 +20,6 @@ class Game:
 		self.max = self.parseMax(max)
 		self.goal = self.findGoal()
 		self.turns = self.findGoodNumber()
-		
-	def __init__(self, max, rounds):
-		# self.name = name
-		# self.player = player
-		self.max = self.parseMax(max)
-		self.rounds = self.parseRounds(rounds)
-		self.goal = self.findGoal()
 		self.turns = self.findGoodNumber()
 		
 	def parseMax(self, max):
@@ -57,25 +50,24 @@ class Game:
 			
 		return intTurns
 				
-	def guessNumber(self, rounds = 1):
+	def guessNumber(self):
 		intGuesses = 0
 		intGuess = 0
-		for x in range(rounds):
-			while intGuess != self.goal:
-				intGuess = int(input("Choose a number from 1 to game max... "))
-				if M.isnan(intGuess) or intGuess < 1 or intGuess > self.max:
-					print("Please guess whole numbers between 1 and the game maximum of ", self.max, "!\nPress 'Enter' to continue.")
-					input()
-					continue
-					
-				intGuesses += 1
+		while intGuess != self.goal:
+			intGuess = int(input("Choose a number from 1 to game max... "))
+			if M.isnan(intGuess) or intGuess < 1 or intGuess > self.max:
+				print("Please guess whole numbers between 1 and the game maximum of ", self.max, "!\nPress 'Enter' to continue.")
+				input()
+				continue
 				
-				if intGuess > self.goal:
-					print("Nope, it's less than that")
-				if intGuess < self.goal:
-					print("Nope, it's greater than that")
-					
-			self.endGame(intGuesses)
+			intGuesses += 1
+			
+			if intGuess > self.goal:
+				print("Nope, it's less than that")
+			if intGuess < self.goal:
+				print("Nope, it's greater than that")
+				
+		self.endGame(intGuesses)
 		
 	def endGame(self, guesses):
 		print("That's it! Congratulations!\nIt took you ", guesses, " turns.")
