@@ -7,19 +7,20 @@ import math as M
 import random as R
 
 #=========================
-class Player:
-	'code'
+# class Player:
+	# Represents a player
+	
+	# code
 
 #=========================
 class Game:
-	'Represents a game created by the player'
+	# Represents a game
 	
 	def __init__(self, max):
 		# self.name = name
 		# self.player = player
 		self.max = self.parseMax(max)
 		self.goal = self.findGoal()
-		self.turns = self.findGoodNumber()
 		self.turns = self.findGoodNumber()
 		
 	def parseMax(self, max):
@@ -36,7 +37,7 @@ class Game:
 			
 	def findGoal(self):
 		intGoal = R.randrange(1, self.max + 1)
-		print(intGoal) #Comment line out BEFORE publishing. For debug use ONLY!
+		#print(intGoal) #Comment line out BEFORE publishing. For debug use ONLY!
 		
 		return intGoal
 		
@@ -54,7 +55,11 @@ class Game:
 		intGuesses = 0
 		intGuess = 0
 		while intGuess != self.goal:
-			intGuess = int(input("Choose a number from 1 to game max... "))
+			try:
+				intGuess = int(input("Choose a number from 1 to game max... "))
+			except:
+				continue
+				
 			if M.isnan(intGuess) or intGuess < 1 or intGuess > self.max:
 				print("Please guess whole numbers between 1 and the game maximum of ", self.max, "!\nPress 'Enter' to continue.")
 				input()
@@ -78,4 +83,27 @@ class Game:
 		if guesses == 1:
 			print("Wow! That's great!")
 			print()
+			
+	def s_guessNumber(self, gameNum):
+		intMax = self.max
+		intMin = 0
+		intTry = 1
+		intGuess = 0
 		
+		print ("Game ", gameNum, ", Game Range ", self.max, ", Goal Number ", self.goal)
+		
+		while intGuess != self.goal:
+			intRange = int(intMax - intMin)
+			intGuess = int(intMin + (intRange / 2))
+			if intGuess < self.goal:
+				print("Guess ", intTry, " -> ", intGuess, "too low")
+				intMin = intGuess
+			elif intGuess > self.goal:
+				print("Guess ", intTry, " -> ", intGuess, "too high")
+				intMax = intGuess
+			else:
+				print("Guess ", intTry, " -> ", intGuess, " was correct")
+			
+			intTry += 1
+			
+#========================
