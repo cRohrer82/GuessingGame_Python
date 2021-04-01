@@ -7,7 +7,7 @@ Classes.py - Game class to create and run game or simulation.
 
 ## Future
 Create multiplayer version<br>
-Possible 'pyplot' addition for visual aspect
+'pyplot' addition for visual aspect
 
 ## Needs work
 Visual Paradigm diagrams
