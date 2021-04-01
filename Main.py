@@ -3,6 +3,8 @@
 @author: Christopher Rohrer
 """
 
+import math as M
+
 print("WELCOME TO THE GUESSING GAME!\n\n"
 "In this game a number is picked at random and then you try to guess\n"
 "what that number is. After each guess you will be told if you are too\n"
@@ -16,13 +18,7 @@ print("WELCOME TO THE GUESSING GAME!\n\n"
 print()
 
 def mainMenu():
-#Display main menu for the game and import correct file
-
-# - Arguements: none.
-# - Print main menu and allow player to choose option.
-# - Ensure only game options are selectible.
-# - Returns: nothing.
-
+# Main menu
 	print("Choose from the menu:")
 	print("1 - Play a normal game (1 - 100)")
 	print("2 - Play a modified game (1 - whatever)")
@@ -31,32 +27,88 @@ def mainMenu():
 	print()
 	charFormat = str(input("Which do you want to do?... "))
 
+# Option 1: Normal game (1-100)
 	if charFormat == "1":
 		print("New Game")
-		import Game as G
-		G.playGame()
+		
+		import Classes as c
+		
+		# Run game using 100 for max.
+		Game = c.Game(100)
+		Game.guessNumber()
+		del Game
+		print()
+		
+		# Return to main menu
 		mainMenu()
 
+# Option 2: Modified game (1-x)
 	elif charFormat == "2":
 		print("New Modified Game")
-		import Modified as M
-		M.playGame()
+		
+		import Classes as c
+		
+		# Maximum for the game is limited to 2 billion. 'While' and 'Try' loop are for error catching.
+		intMaximum = 0
+		while M.isnan(intMaximum) or intMaximum < 2 or intMaximum > 2000000000:
+			try:
+				intMaximum = int(input("Pick a maximum for your game (must be between 2 and 2000000000)... "))
+			except:
+				continue
+				
+		# Run game using player input for max.
+		Game = c.Game(intMaximum)
+		Game.guessNumber()
+		del Game
+		print()
+		
+		# Return to main menu
 		mainMenu()
 
+# Option 3: Simulator (1-x, run by system)
 	elif charFormat =="3":
-		import Simulator as S
-		S.playGame()
+		import Classes as c
+		
+		# Maximum for the simulation is limited to 2 billion. 'While' and 'Try' loop are for error catching.
+		intMaximum = 0
+		intRounds = 0
+		while M.isnan(intMaximum) or intMaximum < 2 or intMaximum > 2000000000:
+			try:
+				intMaximum = int(input("Pick a maximum for your simulation (must be between 2 and 2000000000)... "))
+			except:
+				continue
+				
+		# Minimum number of rounds is 1, maximum is 10. 'While' and 'Try' loop are for error catching.
+		while M.isnan(intRounds) or intRounds < 1 or intRounds > 10:
+			try:
+				intRounds = int(input("How many simulations do you want to run? (must be between 1 and 10)... "))
+			except:
+				continue
+					
+		# 'For' loop runs simulation number of times entered by player. Simulation maximum is also entered by the player
+		for x in range(intRounds):
+			Game = c.Game(intMaximum)
+			Game.s_guessNumber(x + 1)
+			del Game
+			print()
+		print()
+		
+		# Return to main menu
 		mainMenu()
 
+# Option 4: Quit game
 	elif charFormat == "4":
 		print("Thanks for playing!")
 		input()
 		quit
 
+# Invalid option
 	else:
 		print("Please choose an option from the menu")
 		print ()
 		mainMenu()
 
+# Start game
 mainMenu()
-	
+
+#========================

@@ -14,33 +14,24 @@ import random as R
 
 #=========================
 class Game:
-	# Represents a game
+# Represents a game
 	
+# Creates instance of Game class
 	def __init__(self, max):
 		# self.name = name
 		# self.player = player
-		self.max = self.parseMax(max)
+		self.max = max
 		self.goal = self.findGoal()
 		self.turns = self.findGoodNumber()
 		
-	def parseMax(self, max):
-		while M.isnan(max) or max < 2 or max > 2000000000:
-			max = int(input("Please choose a whole number that is greater than 1 and less than 2 billion!... "))
-			
-		return max
-		
-	def parseRounds(self, rounds):
-		while M.isnan(rounds) or rounds < 1 or rounds > 10:
-			rounds = int(input("Please enter a number from 1 to 10... "))
-			
-		return rounds
-			
+# Uses 'Random' library to create a goal for the game.
 	def findGoal(self):
 		intGoal = R.randrange(1, self.max + 1)
 		#print(intGoal) #Comment line out BEFORE publishing. For debug use ONLY!
 		
 		return intGoal
 		
+# Returns a good number of trys, depending on the game's maximum.
 	def findGoodNumber(self):
 		intHigh = 2
 		intTurns = 1
@@ -51,12 +42,14 @@ class Game:
 			
 		return intTurns
 				
+# Runs game. Checks guesses for validity and prints clues to the goal.
 	def guessNumber(self):
 		intGuesses = 0
 		intGuess = 0
 		while intGuess != self.goal:
 			try:
-				intGuess = int(input("Choose a number from 1 to game max... "))
+				instruct = "Choose a number from 1 to {0}... "
+				intGuess = int(input(instruct.format(self.max)))
 			except:
 				continue
 				
@@ -74,16 +67,18 @@ class Game:
 				
 		self.endGame(intGuesses)
 		
+# Ends game and lets player know how they did.
 	def endGame(self, guesses):
 		print("That's it! Congratulations!\nIt took you ", guesses, " turns.")
 		if guesses <= self.turns and guesses > 1:
 			print("Good job!")
 		if guesses > self.turns:
-			print("Try to get it less than ", guesses, " turns next time")
+			print("Try to get it less than ", self.turns, " turns next time")
 		if guesses == 1:
 			print("Wow! That's great!")
 			print()
 			
+# Formats simulations into readable data and uses a simple engine to make guesses.
 	def s_guessNumber(self, gameNum):
 		intMax = self.max
 		intMin = 0
@@ -104,6 +99,5 @@ class Game:
 			else:
 				print("Guess ", intTry, " -> ", intGuess, " was correct")
 			
-			intTry += 1
-			
+			intTry += 1			
 #========================
