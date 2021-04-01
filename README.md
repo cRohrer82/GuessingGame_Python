@@ -1,12 +1,13 @@
-# GuessingGame_Python
+# GuessingGame_Python v1.0-alpha
 
 ## Features
-Generic guessing game with number from 1 to 100.<br>
+Generic guessing game with number from 1 to 100. Modified option lets player choose maximum. Simulator has system run game.<br>
 Main.py - Main menu for the game.<br>
-Game.py - Original game (1 to 100).<br>
-Modified.py - User definied game (1 to whatever).<br>
-Simulator.py - Same as Modified.py, except the application plays it and displays the results.
+Classes.py - Game class to create and run game or simulation.
 
 ## Future
-Create OOP version of the game<br>
-Possible data science addition
+Create multiplayer version<br>
+'pyplot' addition for visual aspect
+
+## Needs work
+Visual Paradigm diagrams
