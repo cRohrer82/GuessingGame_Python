@@ -4,6 +4,7 @@
 """
 
 import math as M
+from Messages import ErrorMessages as EM
 
 print("WELCOME TO THE GUESSING GAME!\n\n"
 "In this game a number is picked at random and then you try to guess\n"
@@ -31,10 +32,10 @@ def mainMenu():
 	if charFormat == "1":
 		print("New Game")
 		
-		import Classes as c
+		import Classes.Game as G
 		
 		# Run game using 100 for max.
-		Game = c.Game(100)
+		Game = G.Game(100)
 		Game.guessNumber()
 		del Game
 		print()
@@ -46,7 +47,7 @@ def mainMenu():
 	elif charFormat == "2":
 		print("New Modified Game")
 		
-		import Classes as c
+		import Classes.Game as G
 		
 		# Maximum for the game is limited to 2 billion. 'While' and 'Try' loop are for error catching.
 		intMaximum = 0
@@ -57,7 +58,7 @@ def mainMenu():
 				continue
 				
 		# Run game using player input for max.
-		Game = c.Game(intMaximum)
+		Game = G.Game(intMaximum)
 		Game.guessNumber()
 		del Game
 		print()
@@ -67,7 +68,7 @@ def mainMenu():
 
 # Option 3: Simulator (1-x, run by system)
 	elif charFormat =="3":
-		import Classes as c
+		import Classes.Game as G
 		
 		# Maximum for the simulation is limited to 2 billion. 'While' and 'Try' loop are for error catching.
 		intMaximum = 0
@@ -87,7 +88,7 @@ def mainMenu():
 					
 		# 'For' loop runs simulation number of times entered by player. Simulation maximum is also entered by the player
 		for x in range(intRounds):
-			Game = c.Game(intMaximum)
+			Game = G.Game(intMaximum)
 			Game.s_guessNumber(x + 1)
 			del Game
 			print()
@@ -104,7 +105,7 @@ def mainMenu():
 
 # Invalid option
 	else:
-		print("Please choose an option from the menu")
+		print(EM.NotAnOptionError())
 		print ()
 		mainMenu()
 
