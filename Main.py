@@ -4,6 +4,7 @@
 """
 
 import math as M
+from Classes import Game as G
 from Messages import ErrorMessages as EM
 
 print("WELCOME TO THE GUESSING GAME!\n\n"
@@ -32,8 +33,6 @@ def mainMenu():
 	if charFormat == "1":
 		print("New Game")
 		
-		import Classes.Game as G
-		
 		# Run game using 100 for max.
 		Game = G.Game(100)
 		Game.guessNumber()
@@ -46,8 +45,6 @@ def mainMenu():
 # Option 2: Modified game (1-x)
 	elif charFormat == "2":
 		print("New Modified Game")
-		
-		import Classes.Game as G
 		
 		# Maximum for the game is limited to 2 billion. 'While' and 'Try' loop are for error catching.
 		intMaximum = 0
@@ -68,8 +65,6 @@ def mainMenu():
 
 # Option 3: Simulator (1-x, run by system)
 	elif charFormat =="3":
-		import Classes.Game as G
-		
 		# Maximum for the simulation is limited to 2 billion. 'While' and 'Try' loop are for error catching.
 		intMaximum = 0
 		intRounds = 0
